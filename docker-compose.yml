@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  calappoint.api:
+    image: ${DOCKER_REGISTRY-}calappointapi
+    build:
+      context: .
+      dockerfile: src\Calappoint.API\Dockerfile
