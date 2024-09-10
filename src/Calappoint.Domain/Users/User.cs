@@ -1,4 +1,5 @@
-﻿using Calappoint.Domain.Abstractions;
+﻿using Calappoint.Domain.Appointments;
+using Calappoint.SharedKernel;
 
 namespace Calappoint.Domain.Users;
 
@@ -10,6 +11,7 @@ public sealed class User : Entity
     public string Email { get; private set; }
     public string HashedPassword { get; private set; }
     public string PhoneNumber { get; private set; }
+    public List<Appointment> Appointments { get; private set; }
 
     private User() { }
 

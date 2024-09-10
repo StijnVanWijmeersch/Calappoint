@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calappoint.API", "src\Calap
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{875ABDD4-36BD-4EFB-8893-2A8C62368D04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calappoint.SharedKernel", "src\Calappoint.SharedKernel\Calappoint.SharedKernel.csproj", "{018243BF-26A1-45BD-B284-FC644D422FED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{875ABDD4-36BD-4EFB-8893-2A8C62368D04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{875ABDD4-36BD-4EFB-8893-2A8C62368D04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{875ABDD4-36BD-4EFB-8893-2A8C62368D04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{018243BF-26A1-45BD-B284-FC644D422FED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{018243BF-26A1-45BD-B284-FC644D422FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{018243BF-26A1-45BD-B284-FC644D422FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{018243BF-26A1-45BD-B284-FC644D422FED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{000C34BA-ED8F-4CE2-A97F-4ACA14B75F2C} = {D7512498-7D96-47E1-BD94-5FCCEF6E8A2C}
 		{FF36ADC8-3C59-447B-8CC6-838D174422DB} = {D7512498-7D96-47E1-BD94-5FCCEF6E8A2C}
 		{394B175A-3A3B-45DD-ABEF-91959D4A952C} = {D7512498-7D96-47E1-BD94-5FCCEF6E8A2C}
+		{018243BF-26A1-45BD-B284-FC644D422FED} = {D7512498-7D96-47E1-BD94-5FCCEF6E8A2C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {109E6F9A-CB85-4067-8EFA-AA0AA7D4E3B4}

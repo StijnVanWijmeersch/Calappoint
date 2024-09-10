@@ -7,9 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Appointments\" />
     <Folder Include="Availabilities\" />
     <Folder Include="Reminders\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Calappoint.SharedKernel\Calappoint.SharedKernel.csproj" />
   </ItemGroup>
 
 </Project>
