@@ -11,7 +11,7 @@ internal sealed class RescheduleAppointmentCommandHandler(
 {
     public async Task<Result> Handle(RescheduleAppointmentCommand request, CancellationToken cancellationToken)
     {
-        var appointment = await appointmentRepository.GetAync(request.AppointmentId, cancellationToken);
+        var appointment = await appointmentRepository.GetAsync(request.AppointmentId, cancellationToken);
 
         if (appointment is null)
         {

@@ -1,4 +1,5 @@
 ﻿using Calappoint.Domain.Appointments.Events;
+using Calappoint.Domain.Users;
 using Calappoint.SharedKernel;
 
 namespace Calappoint.Domain.Appointments;
@@ -14,6 +15,7 @@ public sealed class Appointment : Entity
     public DateTime EndTimeUtc { get; private set; }
     public AppointmentStatus Status { get; private set; }
     public DateTime CreatedOnUtc { get; private set; }
+    public User User { get; private set; }
 
     private Appointment() { }
 
