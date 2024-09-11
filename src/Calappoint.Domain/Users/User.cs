@@ -10,12 +10,12 @@ public sealed class User : Entity
     public string LastName { get; private set; }
     public string Email { get; private set; }
     public string HashedPassword { get; private set; }
-    public string PhoneNumber { get; private set; }
+    public string? PhoneNumber { get; private set; }
     public List<Appointment> Appointments { get; private set; }
 
     private User() { }
 
-    public static User Create(string firstName, string lastName, string email, string hashedPassword, string phoneNumber)
+    public static User Create(string firstName, string lastName, string email, string hashedPassword, string? phoneNumber)
     {
         return new User
         {
