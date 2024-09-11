@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Calappoint.Application.Behaviors;
 
+// This pipeline behavior logs the request and response of the request it is handling.
 internal sealed class RequestLoggingPipelineBehavior<TRequest, TResponse>(
     ILogger<RequestLoggingPipelineBehavior<TRequest, TResponse>> logger) : IPipelineBehavior<TRequest, TResponse>
     where TRequest : class

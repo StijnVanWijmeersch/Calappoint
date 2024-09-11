@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Availabilities\" />
     <Folder Include="Reminders\" />
   </ItemGroup>
 
