@@ -1,4 +1,5 @@
-﻿using Calappoint.Domain.Users;
+﻿using Calappoint.Domain.Appointments;
+using Calappoint.Domain.Users;
 using Calappoint.SharedKernel;
 
 namespace Calappoint.Domain.Availabilities;
@@ -11,7 +12,9 @@ public sealed class Availability : Entity
     public TimeSpan StartTimeUtc { get; private set; }
     public TimeSpan EndTimeUtc { get; private set; }
     public bool IsBooked { get; private set; }
+
     public User User { get; private set; }
+    public Appointment Appointment { get; private set; }
 
     private Availability() { }
 

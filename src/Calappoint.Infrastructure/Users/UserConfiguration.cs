@@ -27,5 +27,9 @@ internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
         builder
             .HasMany(u => u.Appointments)
             .WithOne(a => a.User);
+
+        builder
+            .HasMany(u => u.Availabilities)
+            .WithOne(av => av.User);
     }
 }

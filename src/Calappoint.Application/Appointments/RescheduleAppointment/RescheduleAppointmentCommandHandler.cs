@@ -1,11 +1,13 @@
 ﻿using Calappoint.Application.Abstractions;
 using Calappoint.Application.Abstractions.Data;
 using Calappoint.Domain.Appointments;
+using Calappoint.Domain.Availabilities;
 using Calappoint.SharedKernel;
 
 namespace Calappoint.Application.Appointments.RescheduleAppointment;
 
 internal sealed class RescheduleAppointmentCommandHandler(
+    IAvailabilityRepository availabilityRepository,
     IAppointmentRepository appointmentRepository,
     IUnitOfWork unitOfWork) : ICommandHandler<RescheduleAppointmentCommand>
 {
@@ -18,11 +20,25 @@ internal sealed class RescheduleAppointmentCommandHandler(
             return Result.Failure(AppointmentErrors.NotFound(request.AppointmentId));
         }
 
-        var result = appointment.RescheduleAppointment(request.NewDate, request.NewStartTimeUtc, request.NewEndTimeUtc);
+        var availability = await availabilityRepository.GetAsync(request.AvailabilityId, cancellationToken);
+
+        if (availability is null)
+        {
+            return Result.Failure(AvailabilityErrors.NotFound(request.AvailabilityId));
+        }
+
+        var result = appointment.RescheduleAppointment(availability);
 
         if (result.IsFailure)
         {
             return Result.Failure(result.Error);
+        }
+
+        var bookResult = availability.Book();
+
+        if (bookResult.IsFailure)
+        {
+            return Result.Failure(bookResult.Error);
         }
 
         await unitOfWork.SaveChangesAsync(cancellationToken);

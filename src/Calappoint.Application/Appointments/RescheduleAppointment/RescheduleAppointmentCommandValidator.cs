@@ -9,15 +9,7 @@ internal sealed class RescheduleAppointmentCommandValidator : AbstractValidator<
         RuleFor(x => x.AppointmentId)
             .NotEmpty();
 
-        RuleFor(x => x.NewDate)
-            .NotEmpty()
-            .Must(x => x > DateTime.UtcNow);
-
-        RuleFor(x => x.NewStartTimeUtc)
-            .Must((cmd, startTimeUtc) => startTimeUtc < cmd.NewEndTimeUtc)
-            .NotEmpty();
-
-        RuleFor(x => x.NewEndTimeUtc)
+        RuleFor(x => x.AvailabilityId)
             .NotEmpty();
     }
 }

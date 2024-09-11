@@ -1,4 +1,5 @@
 ﻿using Calappoint.Domain.Appointments.Events;
+using Calappoint.Domain.Availabilities;
 using Calappoint.Domain.Users;
 using Calappoint.SharedKernel;
 
@@ -10,26 +11,24 @@ public sealed class Appointment : Entity
     public Guid UserId { get; private set; }
     public string ClientName { get; private set; }
     public string ClientEmail { get; private set; }
-    public DateTime Date { get; private set; }
-    public DateTime StartTimeUtc { get; private set; }
-    public DateTime EndTimeUtc { get; private set; }
+    public Guid AvailabilityId { get; private set; }
     public AppointmentStatus Status { get; private set; }
     public DateTime CreatedOnUtc { get; private set; }
+
     public User User { get; private set; }
+    public Availability Availability { get; private set; }
 
     private Appointment() { }
 
-    public static Appointment Create(Guid userId, string clientName, string clientEmail, DateTime date, DateTime startTimeUtc, DateTime endTimeUtc)
+    public static Appointment Create(User user, string clientName, string clientEmail, Availability availability)
     {
         var appointment =  new Appointment
         {
             Id = Guid.NewGuid(),
-            UserId = userId,
+            UserId = user.Id,
             ClientName = clientName,
             ClientEmail = clientEmail,
-            Date = date,
-            StartTimeUtc = startTimeUtc,
-            EndTimeUtc = endTimeUtc,
+            AvailabilityId = availability.Id,
             Status = AppointmentStatus.Scheduled,
             CreatedOnUtc = DateTime.UtcNow
         };
@@ -47,6 +46,8 @@ public sealed class Appointment : Entity
         }
 
         Status = AppointmentStatus.Cancelled;
+
+        Availability.UnBook();
 
         RaiseDomainEvent(new AppointmentCancelledDomainEvent(Id));
 
@@ -66,12 +67,12 @@ public sealed class Appointment : Entity
         return Result.Success();
     }
 
-    public Result RescheduleAppointment(DateTime newDate, DateTime newStartTimeUtc, DateTime newEndTimeUtc)
+    public Result RescheduleAppointment(Availability availability)
     {
-        Date = newDate;
-        StartTimeUtc = newStartTimeUtc;
-        EndTimeUtc = newEndTimeUtc;
+        Availability.UnBook();
 
+        AvailabilityId = availability.Id;
+ 
         RaiseDomainEvent(new AppointmentRescheduledDomainEvent(Id));
 
         return Result.Success();

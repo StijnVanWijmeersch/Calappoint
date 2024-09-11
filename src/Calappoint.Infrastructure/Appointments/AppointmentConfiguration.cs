@@ -20,14 +20,15 @@ internal sealed class AppointmentConfiguration : IEntityTypeConfiguration<Appoin
 
         builder.Property(a => a.ClientEmail).IsRequired().HasMaxLength(200);
 
-        builder.Property(a => a.Date).IsRequired();
+        builder.Property(a => a.AvailabilityId).IsRequired();
 
-        builder.Property(a => a.StartTimeUtc).IsRequired();
-
-        builder.Property(a => a.EndTimeUtc).IsRequired();
+        builder.Property(a => a.Status).IsRequired();
 
         builder.HasOne(a => a.User)
             .WithMany(u => u.Appointments)
             .HasForeignKey(a => a.UserId);
+
+        builder.HasOne(a => a.Availability)
+            .WithOne(av => av.Appointment);
     }
 }

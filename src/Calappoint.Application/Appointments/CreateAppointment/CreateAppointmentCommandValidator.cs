@@ -17,15 +17,8 @@ internal sealed class CreateAppointmentCommandValidator : AbstractValidator<Crea
             .NotEmpty()
             .EmailAddress();
 
-        RuleFor(x => x.Date)
-            .NotEmpty()
-            .Must(x => x > DateTime.UtcNow);
-
-        RuleFor(x => x.StartTimeUtc)
-            .Must((cmd, startTimeUtc) => startTimeUtc < cmd.EndTimeUtc)
+        RuleFor(x => x.AvailabilityId)
             .NotEmpty();
 
-        RuleFor(x => x.EndTimeUtc)
-            .NotEmpty();
     }
 }
