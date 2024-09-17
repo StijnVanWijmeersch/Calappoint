@@ -24,10 +24,6 @@ internal sealed class AvailabilityConfiguration : IEntityTypeConfiguration<Avail
 
         builder.Property(a => a.IsBooked).IsRequired();
 
-        builder.HasOne(a => a.User)
-            .WithMany(u => u.Availabilities)
-            .HasForeignKey(a => a.UserId);
-
         builder.HasOne(a => a.Appointment)
             .WithOne(ap => ap.Availability);
     }

@@ -24,10 +24,6 @@ internal sealed class AppointmentConfiguration : IEntityTypeConfiguration<Appoin
 
         builder.Property(a => a.Status).IsRequired();
 
-        builder.HasOne(a => a.User)
-            .WithMany(u => u.Appointments)
-            .HasForeignKey(a => a.UserId);
-
         builder.HasOne(a => a.Availability)
             .WithOne(av => av.Appointment);
     }

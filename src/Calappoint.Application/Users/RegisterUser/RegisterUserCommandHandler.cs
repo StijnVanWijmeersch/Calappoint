@@ -1,19 +1,33 @@
 ﻿using Calappoint.Application.Abstractions;
 using Calappoint.Application.Abstractions.Data;
+using Calappoint.Application.Abstractions.Identity;
 using Calappoint.Domain.Users;
 using Calappoint.SharedKernel;
 
 namespace Calappoint.Application.Users.RegisterUser;
 
 internal sealed class RegisterUserCommandHandler(
+    IIdentityProviderService identityProviderService,
     IUserRepository userRepository,
     IUnitOfWork unitOfWork) : ICommandHandler<RegisterUserCommand, Guid>
 {
     public async Task<Result<Guid>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
     {
-        string passwordHash = BCrypt.Net.BCrypt.HashPassword(request.Password);
+        Result<string> result = await identityProviderService.RegisterUserAsync(
+            new UserModel(request.Email, request.Password, request.FirstName, request.LastName),
+            cancellationToken);
 
-        var user = User.Create(request.FirstName, request.LastName, request.Email, passwordHash, request.PhoneNumber);
+        if (result.IsFailure)
+        {
+            return Result.Failure<Guid>(result.Error);
+        }
+
+
+        var user = User.Create(
+            request.Email,
+            request.FirstName,
+            request.LastName,
+            result.Value);
 
         userRepository.Insert(user);
 

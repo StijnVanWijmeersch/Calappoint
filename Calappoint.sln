@@ -5,17 +5,17 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D7512498-7D96-47E1-BD94-5FCCEF6E8A2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calappoint.Domain", "src\Calappoint.Domain\Calappoint.Domain.csproj", "{20407419-14BA-40CC-97D7-0F40062A0821}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calappoint.Domain", "src\Calappoint.Domain\Calappoint.Domain.csproj", "{20407419-14BA-40CC-97D7-0F40062A0821}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calappoint.Application", "src\Calappoint.Application\Calappoint.Application.csproj", "{000C34BA-ED8F-4CE2-A97F-4ACA14B75F2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calappoint.Application", "src\Calappoint.Application\Calappoint.Application.csproj", "{000C34BA-ED8F-4CE2-A97F-4ACA14B75F2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calappoint.Infrastructure", "src\Calappoint.Infrastructure\Calappoint.Infrastructure.csproj", "{FF36ADC8-3C59-447B-8CC6-838D174422DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calappoint.Infrastructure", "src\Calappoint.Infrastructure\Calappoint.Infrastructure.csproj", "{FF36ADC8-3C59-447B-8CC6-838D174422DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calappoint.API", "src\Calappoint.API\Calappoint.API.csproj", "{394B175A-3A3B-45DD-ABEF-91959D4A952C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calappoint.API", "src\Calappoint.API\Calappoint.API.csproj", "{394B175A-3A3B-45DD-ABEF-91959D4A952C}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{875ABDD4-36BD-4EFB-8893-2A8C62368D04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calappoint.SharedKernel", "src\Calappoint.SharedKernel\Calappoint.SharedKernel.csproj", "{018243BF-26A1-45BD-B284-FC644D422FED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calappoint.SharedKernel", "src\Calappoint.SharedKernel\Calappoint.SharedKernel.csproj", "{018243BF-26A1-45BD-B284-FC644D422FED}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5CB0BFDC-2382-42B1-B812-3CB7AACFF0FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,14 +39,14 @@ Global
 		{394B175A-3A3B-45DD-ABEF-91959D4A952C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{394B175A-3A3B-45DD-ABEF-91959D4A952C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{394B175A-3A3B-45DD-ABEF-91959D4A952C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{875ABDD4-36BD-4EFB-8893-2A8C62368D04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{875ABDD4-36BD-4EFB-8893-2A8C62368D04}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{875ABDD4-36BD-4EFB-8893-2A8C62368D04}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{875ABDD4-36BD-4EFB-8893-2A8C62368D04}.Release|Any CPU.Build.0 = Release|Any CPU
 		{018243BF-26A1-45BD-B284-FC644D422FED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{018243BF-26A1-45BD-B284-FC644D422FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{018243BF-26A1-45BD-B284-FC644D422FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{018243BF-26A1-45BD-B284-FC644D422FED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CB0BFDC-2382-42B1-B812-3CB7AACFF0FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CB0BFDC-2382-42B1-B812-3CB7AACFF0FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CB0BFDC-2382-42B1-B812-3CB7AACFF0FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CB0BFDC-2382-42B1-B812-3CB7AACFF0FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

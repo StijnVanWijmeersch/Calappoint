@@ -3,8 +3,8 @@
 namespace Calappoint.Application.Users.RegisterUser;
 
 public sealed record RegisterUserCommand(
-    string FirstName,
-    string LastName,
     string Email,
     string Password,
-    string? PhoneNumber) : ICommand<Guid>;
+    string FirstName,
+    string LastName
+    ) : ICommand<Guid>;

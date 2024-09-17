@@ -1,33 +1,33 @@
-﻿using Calappoint.Domain.Appointments;
-using Calappoint.Domain.Availabilities;
-using Calappoint.SharedKernel;
+﻿using Calappoint.SharedKernel;
 
 namespace Calappoint.Domain.Users;
 
 public sealed class User : Entity
 {
+    private readonly List<Role> _roles = [];
+
     public Guid Id { get; private set; }
+    public string Email { get; private set; }
     public string FirstName { get; private set; }
     public string LastName { get; private set; }
-    public string Email { get; private set; }
-    public string HashedPassword { get; private set; }
-    public string? PhoneNumber { get; private set; }
-
-    public List<Appointment> Appointments { get; private set; }
-    public List<Availability> Availabilities { get; private set; }
+    public string IdentityId { get; private set; }
+    public IReadOnlyList<Role> Roles => [.. _roles];
 
     private User() { }
 
-    public static User Create(string firstName, string lastName, string email, string hashedPassword, string? phoneNumber)
+    public static User Create(string email, string firstName, string lastName, string IdentityId)
     {
-        return new User
+        var user = new User
         {
             Id = Guid.NewGuid(),
+            Email = email,
             FirstName = firstName,
             LastName = lastName,
-            Email = email,
-            HashedPassword = hashedPassword,
-            PhoneNumber = phoneNumber
+            IdentityId = IdentityId
         };
+
+        user._roles.Add(Role.User);
+
+        return user;
     }
 }

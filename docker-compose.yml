@@ -5,7 +5,7 @@ services:
     image: ${DOCKER_REGISTRY-}calappointapi
     build:
       context: .
-      dockerfile: src\Calappoint.API\Dockerfile
+      dockerfile: src/Calappoint.API/Dockerfile
     ports:
       - "5000:8080"
       - "5001:8081" 
@@ -31,4 +31,18 @@ services:
       - 5341:5341
       - 8081:80
     restart: always
+  
+  calappoint.identity:
+    image: quay.io/keycloak/keycloak:latest
+    container_name: "Calappoint.Identity"
+    command: start-dev --import-realm
+    environment:
+      - KC_HEALTH_ENABLED=true
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    volumes:
+      - ./.containers.identity:/opt/keycloak/data
+      - ./.files:/opt/keycloak/data/import
+    ports:
+      - 18080:8080
   
