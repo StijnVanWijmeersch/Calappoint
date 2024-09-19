@@ -1,7 +1,7 @@
 ﻿namespace Calappoint.Infrastructure.Identity;
 
 internal sealed record UserRepresentation(
-    string UserName,
+    string Username,
     string Email,
     string FirstName,
     string LastName,
