@@ -8,11 +8,11 @@ internal sealed class AvailabilityRepository(CalappointDbContext context) : IAva
 {
     public async Task<Availability?> GetAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        return await context.Availabilities.SingleOrDefaultAsync(a => a.Id == id, cancellationToken);
+        throw new NotImplementedException();
     }
 
     public void Insert(Availability availability)
     {
-        context.Availabilities.Add(availability);
+        throw new NotImplementedException();
     }
 }

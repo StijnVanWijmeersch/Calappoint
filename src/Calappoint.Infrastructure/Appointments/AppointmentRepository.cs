@@ -8,11 +8,11 @@ internal sealed class AppointmentRepository(CalappointDbContext context) : IAppo
 {
     public async Task<Appointment?> GetAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        return await context.Appointments.SingleOrDefaultAsync(a => a.Id == id, cancellationToken);
+        throw new NotImplementedException();
     }
 
     public void Insert(Appointment appointment)
     {
-        context.Appointments.Add(appointment);
+        throw new NotImplementedException();
     }
 }

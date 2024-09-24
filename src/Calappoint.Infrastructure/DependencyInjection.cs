@@ -2,10 +2,12 @@
 using Calappoint.Application.Abstractions.Identity;
 using Calappoint.Domain.Appointments;
 using Calappoint.Domain.Availabilities;
+using Calappoint.Domain.Clients;
 using Calappoint.Domain.Users;
 using Calappoint.Infrastructure.Appointments;
 using Calappoint.Infrastructure.Authentication;
 using Calappoint.Infrastructure.Availabilities;
+using Calappoint.Infrastructure.Clients;
 using Calappoint.Infrastructure.Database;
 using Calappoint.Infrastructure.Identity;
 using Calappoint.Infrastructure.Users;
@@ -43,6 +45,7 @@ public static class DependencyInjection
 
         services
             .AddScoped<IUserRepository, UserRepository>()
+            .AddScoped<IClientRepository, ClientRepository>()
             .AddScoped<IAvailabilityRepository, AvailabilityRepository>()
             .AddScoped<IAppointmentRepository, AppointmentRepository>();
 

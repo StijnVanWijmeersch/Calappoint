@@ -13,9 +13,8 @@ internal sealed class RegisterUser : IEndpoint
         {
             Result<Guid> result = await sender.Send(new RegisterUserCommand(
                 request.Email,
-                request.Password,
-                request.FirstName,
-                request.LastName));
+                request.Password
+                ));
 
             return result.IsSuccess
                 ? Results.Created($"users/{result.Value}", result.Value)
@@ -29,7 +28,5 @@ internal sealed class RegisterUser : IEndpoint
     {
         public string Email { get; init; }
         public string Password { get; init; }
-        public string FirstName { get; init; }
-        public string LastName { get; init; }
     }
 }

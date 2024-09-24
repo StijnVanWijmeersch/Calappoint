@@ -17,8 +17,8 @@ internal class IdentityProviderService(
         var userRepresentation = new UserRepresentation(
             user.Email,
             user.Email,
-            user.FirstName,
-            user.LastName,
+            null,
+            null,
             true,
             true,
             [new CredentialRepresentation(Password, user.Password, false)]);

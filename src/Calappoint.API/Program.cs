@@ -1,4 +1,5 @@
 using Calappoint.API.Endpoints;
+using Calappoint.API.Extensions;
 using Calappoint.Application;
 using Calappoint.Infrastructure;
 using Serilog;
@@ -8,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog((context, config) => config.ReadFrom.Configuration(context.Configuration));
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerDoc();
 
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
